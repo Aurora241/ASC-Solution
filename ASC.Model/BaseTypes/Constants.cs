@@ -8,7 +8,7 @@ namespace ASC.Model.BaseTypes
 {
     public class Constants
     {
-
+        
     }
     public enum Roles
     {

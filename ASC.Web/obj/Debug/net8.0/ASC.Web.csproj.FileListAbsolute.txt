@@ -299,3 +299,12 @@ D:\KTPM\ASC.Solution\ASC.Web\bin\Debug\net8.0\Microsoft.Extensions.ObjectPool.dl
 D:\KTPM\ASC.Solution\ASC.Web\bin\Debug\net8.0\Microsoft.Extensions.WebEncoders.dll
 D:\KTPM\ASC.Solution\ASC.Web\bin\Debug\net8.0\MimeKit.dll
 D:\KTPM\ASC.Solution\ASC.Web\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.Google.dll
+D:\KTPM\ASC.Solution\ASC.Web\bin\Debug\net8.0\AutoMapper.dll
+D:\KTPM\ASC.Solution\ASC.Web\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\KTPM\ASC.Solution\ASC.Web\bin\Debug\net8.0\EPPlus.dll
+D:\KTPM\ASC.Solution\ASC.Web\bin\Debug\net8.0\EPPlus.Interfaces.dll
+D:\KTPM\ASC.Solution\ASC.Web\bin\Debug\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+D:\KTPM\ASC.Solution\ASC.Web\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Json.dll
+D:\KTPM\ASC.Solution\ASC.Web\bin\Debug\net8.0\Microsoft.Extensions.Caching.StackExchangeRedis.dll
+D:\KTPM\ASC.Solution\ASC.Web\bin\Debug\net8.0\Pipelines.Sockets.Unofficial.dll
+D:\KTPM\ASC.Solution\ASC.Web\bin\Debug\net8.0\StackExchange.Redis.dll

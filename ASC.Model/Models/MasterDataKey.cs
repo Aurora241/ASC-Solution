@@ -13,7 +13,7 @@ namespace ASC.Model.Models
         public MasterDataKey(string key)
         {
             this.RowKey = Guid.NewGuid().ToString();
-            this.PatititonKey = key;
+            this.PartitionKey = key;
         }
 
         public bool IsActive { get; set; }

@@ -14,7 +14,7 @@ namespace ASC.Model.Models
         public ServiceRequest(string email)
         {
             this.RowKey = Guid.NewGuid().ToString();
-            this.PatititonKey = email;
+            this.PartitionKey = email;
         }
 
         public string VehicleName { get; set; }
