@@ -27,11 +27,11 @@ namespace ASC.Web.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<MasterDataKey>()
-                .HasKey(c => new { c.PatititonKey, c.RowKey });
+                .HasKey(c => new { c.PartitionKey, c.RowKey });
             builder.Entity<MasterDataValue>()
-                .HasKey(c => new { c.PatititonKey, c.RowKey });
+                .HasKey(c => new { c.PartitionKey, c.RowKey });
             builder.Entity<ServiceRequest>()
-                .HasKey(c => new { c.PatititonKey, c.RowKey });
+                .HasKey(c => new { c.PartitionKey, c.RowKey });
             base.OnModelCreating(builder);
         }
     }

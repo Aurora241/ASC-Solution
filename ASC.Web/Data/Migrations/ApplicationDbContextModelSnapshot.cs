@@ -17,7 +17,7 @@ namespace ASC.Web.Data.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "8.0.10")
+                .HasAnnotation("ProductVersion", "8.0.11")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -45,14 +45,13 @@ namespace ASC.Web.Data.Migrations
 
             modelBuilder.Entity("ASC.Model.Models.MasterDataKey", b =>
                 {
-                    b.Property<string>("PatititonKey")
+                    b.Property<string>("PartitionKey")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("RowKey")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
@@ -69,27 +68,25 @@ namespace ASC.Web.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("PatititonKey", "RowKey");
+                    b.HasKey("PartitionKey", "RowKey");
 
                     b.ToTable("MasterDatakeys");
                 });
 
             modelBuilder.Entity("ASC.Model.Models.MasterDataValue", b =>
                 {
-                    b.Property<string>("PatititonKey")
+                    b.Property<string>("PartitionKey")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("RowKey")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
@@ -106,13 +103,12 @@ namespace ASC.Web.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("PatititonKey", "RowKey");
+                    b.HasKey("PartitionKey", "RowKey");
 
                     b.ToTable("MasterDataValues");
                 });
@@ -140,7 +136,7 @@ namespace ASC.Web.Data.Migrations
 
             modelBuilder.Entity("ASC.Model.Models.ServiceRequest", b =>
                 {
-                    b.Property<string>("PatititonKey")
+                    b.Property<string>("PartitionKey")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("RowKey")
@@ -150,7 +146,6 @@ namespace ASC.Web.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
@@ -175,7 +170,6 @@ namespace ASC.Web.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UpdatedBy")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdatedDate")
@@ -189,7 +183,7 @@ namespace ASC.Web.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("PatititonKey", "RowKey");
+                    b.HasKey("PartitionKey", "RowKey");
 
                     b.ToTable("ServiceRequests");
                 });

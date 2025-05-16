@@ -7,61 +7,11 @@ using ASC.Web.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
+using OfficeOpenXml;
 
 var builder = WebApplication.CreateBuilder(args);
-//builder.Services.AddCongfig(builder.Configuration).AddMyDependencyGroup(); //Add revise
-builder.Services.AddScoped<INavigationCacheOperations, NavigationCacheOperations>();
-
-// Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
-
-//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ASCWebContext>();
-
-//builder.Services.AddIdentity<IdentityUser, IdentityRole>((options) =>
-//{
-//    options.User.RequireUniqueEmail = true;
-//}).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
-//them thu
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
-{
-    options.SignIn.RequireConfirmedAccount = true;
-    options.User.RequireUniqueEmail = true;
-})
-.AddEntityFrameworkStores<ApplicationDbContext>()
-.AddDefaultTokenProviders().AddDefaultUI();
-// -->
-builder.Services.AddScoped<DbContext, ApplicationDbContext>();
-
-builder.Services.AddAuthentication()
-    .AddGoogle(options =>
-    {
-        options.ClientId = "738886972793-9db0hkq9ht46gqjbsnoituvgl341dbib.apps.googleusercontent.com";
-        options.ClientSecret = "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";
-    });
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
-
-/*builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<ApplicationDbContext>();*/
-
-builder.Services.AddOptions();
-builder.Services.Configure<ApplicationSettings>(builder.Configuration.GetSection("AppSettings"));
-
-builder.Services.AddControllersWithViews();
-
-builder.Services.AddRazorPages();
-
-builder.Services.AddTransient<IEmailSender, AuthMessageSender>();
-builder.Services.AddTransient<ISmsSender, AuthMessageSender>();
-//Addition lab4
-builder.Services.AddSession();
-builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-//End lab4
-builder.Services.AddSingleton<IIdentitySeed, IdentitySeed>();
-builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
-builder.Services.AddDistributedMemoryCache();
-
+builder.Services.AddCongfig(builder.Configuration).AddMyDependencyGroup();
+ExcelPackage.License.SetNonCommercialPersonal("Auto mobile Service Center");
 
 var app = builder.Build();
 
@@ -106,6 +56,12 @@ using (var scope = app.Services.CreateScope())
 {
     var navigationCacheOperations = scope.ServiceProvider.GetRequiredService<INavigationCacheOperations>();
     await navigationCacheOperations.CreateNavigationCacheAsync();
-}
 
+}
+using (var scope = app.Services.CreateScope())
+{
+    var masterDataCacheOperations = scope.ServiceProvider.GetRequiredService<IMasterDataCacheOperations>();
+    await masterDataCacheOperations.CreateMasterDataCacheAsync();
+
+}
 app.Run();
